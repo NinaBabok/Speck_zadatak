@@ -132,7 +132,7 @@
 
     footer {
       text-align: center;
-      color: var(-color);
+      color: var(--color);
       position: fixed;
       left: 0;
       bottom: 0;
@@ -174,6 +174,12 @@
       // get the value from user input
       var product = document.getElementById("product_title");
 
+      // quit the function before doing anything
+      // if the product title is empty
+      if(!product.value) {
+        return; 
+      }
+
       // create a text element that contains the text
       // because in HTML all the text has to be in a text element
       var content = document.createTextNode(product.value);
@@ -200,7 +206,7 @@
     function removeItems() {
       if (confirm("Are you sure that you want to remove all products?")) {
         products.innerHTML = ""
-
+        counter = 0;
         numberOfProducts.parentNode.style.display = "none";
         btnRemove.style.display = "none";
       }
